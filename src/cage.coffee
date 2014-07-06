@@ -14,6 +14,8 @@ select = require('soupselect').select
 htmlparser = require('htmlparser')
 http = require('http')
 sys = require('sys')
+Entities = require('html-entities').XmlEntities;
+Iconv = require('iconv').Iconv
 
 nodeToText = (node) ->
   if node.type is 'tag'
@@ -45,12 +47,9 @@ cageMe = (n, callback) ->
             return false if not p.attribs
             return p.attribs.align is 'left'
           text = (nodeToText(child) for child in left_paras[1].children).join('')
-          text = text.replace(/&\#8216;/g, "'")
-          text = text.replace(/&\#8217;/g, "'")
-          text = text.replace(/&\#8220;/g, '"')
-          text = text.replace(/&\#8221;/g, '"')
-          text = text.replace(/&\#182;/g, '')
-          text = text.replace(/\/\//g, '')
+          entities = new Entities();
+          iconv = new Iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE')
+          text = iconv.convert(entities.decode(text)).toString()
 
           callback text))
       parser.parseComplete body

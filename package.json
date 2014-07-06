@@ -1,7 +1,7 @@
 {
   "name": "hubot-cage",
   "description": "Recite stories from Cage's 'Indeterminacy'.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "James Hamlin <jfhamlin@gmail.com>",
 
   "contributors": [
@@ -31,7 +31,9 @@
   "dependencies": {
     "coffee-script": "~1.6",
     "soupselect": "0.2.0",
-    "htmlparser": "1.7.7"
+    "htmlparser": "1.7.7",
+    "html-entities": "1.0.10",
+    "iconv": "2.1.4"
   },
 
   "devDependencies": {
