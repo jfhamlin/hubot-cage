@@ -1,7 +1,7 @@
 {
   "name": "hubot-cage",
   "description": "Recite stories from Cage's 'Indeterminacy'.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "James Hamlin <jfhamlin@gmail.com>",
 
   "contributors": [
