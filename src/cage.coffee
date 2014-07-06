@@ -15,7 +15,14 @@ htmlparser = require('htmlparser')
 http = require('http')
 sys = require('sys')
 
-cageMe = (n, callback) =>
+nodeToText = (node) ->
+  if node.type is 'tag'
+    return (nodeToText(child) for child in node.children).join(' ') if node.children
+  else if node.type is 'text'
+    return node.raw
+  return ''
+
+cageMe = (n, callback) ->
   path = "/indeterminacy/s/#{n}"
   host = 'www.lcdf.org'
   options =
@@ -36,11 +43,8 @@ cageMe = (n, callback) =>
           paras = select dom, 'p'
           left_paras = paras.filter (p) ->
             return false if not p.attribs
-            return p.attribs.align == 'left'
-          text = ''
-          for child in left_paras[1].children
-            continue unless child.type == 'text'
-            text = text + child.raw
+            return p.attribs.align is 'left'
+          text = (nodeToText(child) for child in left_paras[1].children).join('')
           text = text.replace(/&\#8216;/g, "'")
           text = text.replace(/&\#8217;/g, "'")
           text = text.replace(/&\#8220;/g, '"')
