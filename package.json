@@ -1,0 +1,45 @@
+{
+  "name": "hubot-cage",
+  "description": "Recite stories from Cage's 'Indeterminacy'.",
+  "version": "0.0.1",
+  "author": "James Hamlin <jfhamlin@gmail.com>",
+
+  "contributors": [
+    {
+      "name": "James Hamlin",
+      "email": "jfhamlin@gmail.com"
+    }
+  ],
+
+  "license": "MIT",
+
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "cage"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jfhamlin/hubot-cage.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/jfhamlin/hubot-cage/issues"
+  },
+
+  "dependencies": {
+    "coffee-script": "~1.6",
+    "soupselect": "0.2.0",
+    "htmlparser": "1.7.7"
+  },
+
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "sinon-chai": "*",
+    "sinon": "*"
+  },
+
+  "main": "index.coffee",
+}
